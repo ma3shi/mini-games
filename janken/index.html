@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>じゃんけん</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="message"></div>
+      <div id="janken-wrapper">
+        <div id="player-wrapper" class="wrapper-com-play">
+          <h3>あなた</h3>
+          <h3 id="player-score"></h3>
+          <img src="img/janken_gu.png" alt="" />
+        </div>
+
+        <div id="com-wrapper" class="wrapper-com-play">
+          <h3>対戦相手</h3>
+          <h3 id="com-score"></h3>
+          <img src="img/janken_gu.png" alt="" />
+        </div>
+
+      </div>
+
+      <div id="keyword-wrapper">
+        <p id="keyword"></p>
+        <img src="img/question.png" alt="" />
+      </div>
+
+      <div class="btns">
+        <div id="0" class="btn choice">グー</div>
+        <div id="1" class="btn choice">パー</div>
+        <div id="2" class="btn choice">チョキ</div>
+        <div id="show-rule" class="btn">ルール</div>
+        <div id="reset" class="btn">リセット</div>
+        <a href="../index.html" class="btn">一覧へ</a>
+      </div>
+
+      <div id="rule">
+        <!-- &times;は乗算× -->
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <p>
+          じゃんけんゲームです。<br />
+          グーで勝つと3段(グリコ),<br />
+          チョキで勝つと6段(チョコレイト),<br />
+          パーで勝つと6段(パイナップル)登ります。<br />
+          先に25段登った方が勝ちです。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

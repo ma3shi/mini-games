@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>10パズル</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="title-stage">
+        <div id="title">10パズル</div>
+        <div id="stage-container">
+          <div id="stage"></div>
+          <div id="progress-bar">
+            <div id="progress-bar-full"></div>
+          </div>
+        </div>
+      </div>
+      <div id="messages">
+        <div id="message"></div>
+      </div>
+      <ul id="numbers">
+        <!-- <li class="number">1</li>
+      <li class="number">2</li>
+      <li class="number">3</li>
+      <li class="number">4</li> -->
+      </ul>
+      <ul id="symbols">
+        <!-- <li class="symbol">+</li>
+      <li class="symbol">-</li>
+      <li class="symbol">*</li>
+      <li class="symbol">/</li> -->
+      </ul>
+      <div id="btns">
+        <div id="next" class="btn disabled">Next</div>
+        <div id="retry" class="btn">Retry</div>
+        <div id="allreset" class="btn">All Reset</div>
+        <div id="show-rule" class="btn">Rule</div>
+        <a href="../index.html" class="btn">toList</a>
+      </div>
+      <div id="rule">
+        <!-- &times;は乗算× -->
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <br />
+        <p>
+          4つの数字と四則演算（＋、－、×(*)、÷(/)）を使って10にするテンパズルです。<br />
+          全部で15ステージあります。<br />Retryボタン：現在のステージの最初の状態に戻ります。<br />All
+          Resetボタン：一番最初のステージに戻ります。
+          <br />小数点・分数表示はできません。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+      <audio id="correct">
+        <source src="sounds/correct.mp3" />
+      </audio>
+      <audio id="allcorrect">
+        <source src="sounds/allcorrect.mp3" />
+      </audio>
+      <audio id="uncorrect">
+        <source src="sounds/uncorrect.mp3" />
+      </audio>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

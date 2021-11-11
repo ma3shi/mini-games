@@ -1,0 +1,336 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+/* width:100vw;height:100vh; */
+#container {
+  width: 100vw;
+  height: 100vh;
+  /* border: red 1px solid; */
+}
+
+#title-stage {
+  margin-top: 1rem;
+  width: 100%;
+  height: 10%;
+  display: flex;
+}
+
+/* タイトル */
+#title {
+  width: 60%;
+  height: 100%;
+  font-size: 2.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  letter-spacing: 8px;
+  /* border: blue 1px solid; */
+}
+
+/* 問題番号取りまとめ */
+#stage-container {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 問題番号 */
+#stage {
+  width: 100%;
+  height: 40%;
+  font-size: 1.3rem;
+  color: green;
+  /* border: chocolate 1px solid; */
+}
+
+/* プログレスバー枠 */
+#progress-bar {
+  width: 90%;
+  height: 50%;
+  border: 0.25rem solid #56a5eb;
+}
+
+/* プログレスバー表示 */
+#progress-bar-full {
+  height: 100%;
+  background-color: #56a5eb;
+  width: 0%;
+}
+
+/* メッセージ */
+#messages {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  /* border: pink 1px solid; */
+}
+/* メッセージ */
+#message {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  font-size: 2.5rem;
+  color: red;
+  text-align: center;
+  letter-spacing: 10px;
+  transform: translateX(100px);
+  animation: slide 0.5s forwards;
+}
+/* メッセージを消す */
+.invisible {
+  display: none;
+}
+/* メッセージをスライドイン */
+@keyframes slide {
+  0% {
+    transform: none;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(50%);
+    opacity: 1;
+  }
+}
+
+/* 数字一覧 */
+#numbers {
+  width: 100%;
+  height: 20%;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin-bottom: 1rem;
+  /* border: 1px purple solid; */
+}
+
+/* 数字 */
+.number {
+  width: 23%;
+  height: 100%;
+  font-size: 4rem;
+  color: orange;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: skyblue;
+  user-select: none;
+}
+
+/* 数字ホバー */
+.number:not(.disabled):hover {
+  cursor: pointer;
+  color: skyblue;
+  background-color: orange;
+}
+
+/* 数字を押す */
+.number:active {
+  transform: scale(0.98);
+}
+
+/* 一番目に選んだ数字 */
+.firstselect {
+  color: skyblue;
+  background: lightgreen;
+}
+
+/* 計算記号一覧 */
+#symbols {
+  width: 100%;
+  height: 20%;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin-bottom: 1.5rem;
+
+  /* border: 1px solid tomato; */
+}
+
+/* 計算記号 */
+.symbol {
+  width: 23%;
+  height: 100%;
+  font-size: 4rem;
+  color: lightsalmon;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  user-select: none;
+}
+
+.symbol:hover {
+  cursor: pointer;
+  color: yellow;
+  background-color: lightsalmon;
+}
+
+/* 記号を押す */
+.symbol:active {
+  transform: scale(0.98);
+}
+
+/* 選択中の記号 */
+.active {
+  color: yellow;
+  background: lightsalmon;
+}
+
+/* クリック不可 */
+#numbers .disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+/* ボタン取りまとめ */
+#btns {
+  width: 100%;
+  height: 40%;
+
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid blueviolet; */
+}
+
+/* ボタン */
+.btn {
+  width: 100%;
+  height: 20%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: tomato;
+  color: lightgreen;
+  border: 1px solid white;
+  user-select: none;
+  letter-spacing: 2px;
+}
+
+/* ボタンをホバー */
+.btn:not(.disabled):hover {
+  cursor: pointer;
+  color: tomato;
+  background-color: lightgreen;
+}
+
+/* ボタンを押す */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* ボタン利用不可 */
+#btns .disabled {
+  cursor: not-allowed;
+}
+
+/* ゲームルール */
+#rule {
+  /* 上下左右中央に寄せる */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  width: 70%;
+
+  color: black;
+  background-color: white;
+  padding: 35px;
+  border-radius: 5px;
+  box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+  /* overlayより上に重ねる */
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+#rule p {
+  line-height: 1.7;
+}
+
+/* ルールをだす */
+#rule.show {
+  transform: translate(-50%, 0);
+}
+
+/* ぼかしを隠す */
+.hidden {
+  display: none;
+}
+
+/* ぼかしをかぶせる */
+#overlay-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* ぼかしを入れる  px単位でぼやけ具合を指定*/
+  backdrop-filter: blur(3px);
+  /* modalの下に置く */
+  z-index: 5;
+}
+
+/* ルールを閉じるボタン */
+#close-rule {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: black;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 40rem) {
+  #container {
+    max-width: 800px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #title {
+    font-size: 2.7rem;
+  }
+  #stage {
+    font-size: 1.5rem;
+  }
+  #btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    height: 12%;
+  }
+  .btn {
+    width: 22%;
+    height: 100%;
+    font-size: 1.4rem;
+    border-radius: 100px;
+  }
+  #rule {
+    width: 40%;
+  }
+}

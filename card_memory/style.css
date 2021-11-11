@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #fcc2d7;
+  font-weight: bold;
+}
+
+/* width:100vw;height:100vh; */
+#container {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 1rem;
+}
+
+/* タイトル */
+#title {
+  margin: 0;
+  margin-top: 1rem;
+  width: 100%;
+  height: 10%;
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+
+/* 残りカウント */
+#remain-count {
+  margin: 0 auto;
+  width: 80%;
+  height: 7%;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* カード取りまとめ */
+#card-wrapper {
+  width: 80%;
+  height: 60%;
+  margin: 2rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2%;
+}
+
+/* カード */
+.card {
+  transition: 0.8s;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* カード前面・裏面共通 */
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+/* カード前面 */
+.card-front {
+  background: #fff;
+  color: #74c0fc;
+  transform: rotateY(180deg);
+}
+
+/* カード裏面 */
+.card-back {
+  background: #74c0fc;
+  color: #fff;
+}
+
+/* カードをめくる */
+.open {
+  transform: rotateY(180deg);
+}
+
+/* ボタン取りまとめ */
+#btn-wrapper {
+  width: 80%;
+  height: 10%;
+  margin: 1rem auto;
+  display: flex;
+}
+
+/* ボタン */
+.btn {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: blue;
+  color: #fff;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+/* ボタンをホバー */
+.btn:not(.inactive):hover {
+  background-color: white;
+  color: blue;
+}
+
+/* ボタンを押す */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* 使用不可 */
+.inactive {
+  cursor: not-allowed;
+}
+
+/* ゲームルール */
+#rule {
+  /* 上下左右中央に寄せる */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  width: 70%;
+
+  color: black;
+  background-color: white;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+  /* overlayより上に重ねる */
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+#rule p {
+  line-height: 1.7;
+}
+
+/* ルールをだす */
+#rule.show {
+  transform: translate(-50%, 0);
+}
+
+/* ぼかしを隠す */
+.hidden {
+  display: none;
+}
+
+/* ぼかしをかぶせる */
+#overlay-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* ぼかしを入れる  px単位でぼやけ具合を指定*/
+  backdrop-filter: blur(3px);
+  /* modalの下に置く */
+  z-index: 5;
+}
+
+/* ルールを閉じるボタン */
+#close-rule {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: black;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 40rem) {
+  #container {
+    max-width: 800px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #btn-wrapper {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .btn {
+    width: 28%;
+  }
+  #rule {
+    width: 40%;
+  }
+}

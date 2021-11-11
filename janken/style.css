@@ -1,0 +1,262 @@
+＊ {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: skyblue;
+  color: black;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+/* width:100vw;height:100vh; */
+#container {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 1rem;
+}
+
+/* メッセージ */
+#message {
+  width: 100%;
+  height: 8%;
+  text-align: center;
+}
+
+/* デフォルトのマージンを取り除く */
+h3 {
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+/* じゃんけん取りまとめ */
+#janken-wrapper {
+  width: 100%;
+  height: 40%;
+  margin-top: 1rem;
+  display: flex;
+}
+
+/* comとplayer */
+.wrapper-com-play {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+#janken-wrapper img {
+  width: 40%;
+}
+
+/* キーワード取りまとめ */
+#keyword-wrapper {
+  width: 100%;
+  height: 18%;
+  display: flex;
+  justify-content: center;
+}
+
+#keyword-wrapper img {
+  width: 15%;
+}
+
+/* ボタン取りまとめ */
+.btns {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ボタン */
+.btn {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s all linear;
+  border: 1px solid #fff;
+}
+
+/* ボタンをホバー */
+.btn:not(.inactive):hover {
+  background-color: darkcyan;
+  border: 4px solid darkcyan;
+}
+
+/* ボタンを押す */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* ボタン利用不可 */
+.inactive {
+  cursor: not-allowed;
+}
+
+/* com手を振る */
+.moveComHand {
+  animation-name: moveComHand;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+/* player手を振る */
+.movePlayerHand {
+  animation-name: movePlayerHand;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+/* keyword画像を動かす */
+.moveKeyword {
+  animation-name: moveKeyword;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in;
+}
+/* com手を振る */
+@keyframes moveComHand {
+  0% {
+    transform: rotate(-45deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+  75% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* player手を振る */
+@keyframes movePlayerHand {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  75% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* keyword画像を動かす */
+@keyframes moveKeyword {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ゲームルール */
+#rule {
+  /* 上下左右中央に寄せる */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  width: 70%;
+
+  color: black;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+  /* overlayより上に重ねる */
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+#rule p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* ルールをだす */
+#rule.show {
+  transform: translate(-50%, 0);
+}
+
+/* ぼかしを隠す */
+.hidden {
+  display: none;
+}
+
+/* ぼかしをかぶせる */
+#overlay-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* ぼかしを入れる  px単位でぼやけ具合を指定*/
+  backdrop-filter: blur(3px);
+  /* modalの下に置く */
+  z-index: 5;
+}
+
+/* ルールを閉じるボタン */
+#close-rule {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: black;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+#rule h3 {
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 40rem) {
+  #container {
+    max-width: 800px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btns {
+    margin-top: 1rem;
+    height: 20%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 3%;
+    row-gap: 10%;
+    /* border: red 1px solid; */
+  }
+  .btn {
+    border: 4px white solid;
+    border-radius: 100px;
+  }
+  #rule {
+    width: 30%;
+  }
+}

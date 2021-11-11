@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>2・3・4</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h2 id="title">2・3・4枚めくり</h2>
+      <div id="remain-count"></div>
+      <div id="card-wrapper">
+        <!-- <div class="card">
+        <div class="card-front">1</div>
+        <div class="card-back">?</div>
+      </div> -->
+      </div>
+      <div id="btn-wrapper">
+        <div id="retry" class="btn inactive">もう一度</div>
+        <div id="show-rule" class="btn">ルール</div>
+        <a href="../index.html" class="btn">一覧へ</a>
+      </div>
+      <audio id="correct">
+        <source src="sounds/correct.mp3" />
+      </audio>
+      <audio id="allcorrect">
+        <source src="sounds/allcorrect.mp3" />
+      </audio>
+      <audio id="uncorrect">
+        <source src="sounds/uncorrect.mp3" />
+      </audio>
+      <div id="rule">
+        <!-- &times;は乗算× -->
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <br />
+        <p>
+          神経衰弱です。<br />
+          3種類のカード<br />(ニワトリ:２枚、サンタ:3枚、四つ葉のクローバー:4枚)
+          <br />
+          をそれぞれ合わせてください。<br />
+          ミスをすると残り回数が減ります。<br />残り回数が0になるとゲームオーバーです。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

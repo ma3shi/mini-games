@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>memory game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="title-stage">
+        <div id="title">Memory Game</div>
+        <div id="stage-container">
+          <div id="stage"></div>
+          <div id="progress-bar">
+            <div id="progress-bar-full"></div>
+          </div>
+        </div>
+      </div>
+      <div id="message" class="message">?</div>
+      <div id="card-wrapper" class="inactive">
+        <!-- <div class="card" id="1">
+        <div class="card-front">1</div>
+        <div class="card-back">?</div>    
+      </div>
+      <div class="card" id="2">
+        <div class="card-front">2</div>
+        <div class="card-back">?</div>    
+      </div>
+      <div class="card" id="3">
+        <div class="card-front">3</div>
+        <div class="card-back">?</div>    
+      </div> -->
+      </div>
+      <div class="btn-wrapper">
+        <div id="spin-btn" class="btn">Spin</div>
+        <div id="question-btn" class="btn disabled">問題</div>
+        <div id="next-btn" class="btn disabled">次へ</div>
+        <div id="retry-btn" class="btn disabled">もう一度</div>
+        <div id="show-rule" class="btn">ルール</div>
+        <a href="../index.html" class="btn">一覧へ</a>
+      </div>
+      <audio id="roll-sound" loop>
+        <source src="sounds/roll.mp3" />
+      </audio>
+      <audio id="question-sound">
+        <source src="sounds/question.mp3" />
+      </audio>
+      <audio id="correct-sound">
+        <source src="sounds/correct.mp3" />
+      </audio>
+      <audio id="allcorrect-sound">
+        <source src="sounds/allcorrect.mp3" />
+      </audio>
+      <audio id="uncorrect-sound">
+        <source src="sounds/uncorrect.mp3" />
+      </audio>
+      <div id="rule">
+        <!-- &times;は乗算× -->
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <br />
+        <p>
+          数字記憶ゲームです。<br />
+          spinボタンを押すとカードが1枚ずつ回転し、裏側に隠された数字が一瞬見えます。<br />
+          questionボタンを押すと数字が出題されます。その数字カードを選んでください。<br />
+          全部で5ステージあります。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

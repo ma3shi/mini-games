@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Mochiy Pop P One", sans-serif;
+  background-color: #ffd300;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+h1 {
+  color: #33b0dd;
+  font-size: 3rem;
+  height: 15%;
+  margin-top: 1rem;
+  text-align: center;
+}
+.links {
+  font-size: 2rem;
+  margin-top: 2rem;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #ff7799;
+}
+
+a:hover {
+  color: #ff0000;
+}
