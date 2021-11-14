@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>guess seconds</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="title" class="title">秒当てゲーム</div>
+      <div id="diff"></div>
+      <div id="random-time"></div>
+      <div id="result-time"></div>
+      <div id="admit-time"></div>
+
+      <div class="btn-wrapper">
+        <div class="btn" id="start">スタート</div>
+        <div class="btn inactive" id="stop">ストップ</div>
+        <div class="btn inactive" id="retry">もう一度</div>
+        <div id="show-rule" class="btn">ルール</div>
+        <a href="../index.html" class="btn">一覧へ</a>
+      </div>
+
+      <div id="rule">
+        <!-- &times;は乗算× -->
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <br />
+        <p>
+          時間当てゲームです。<br />
+          誤差の範囲内でストップできたら成功です。<br />
+          1回ごとに目標タイムと許容誤差は変わります。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,295 @@
+＊ {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #d5ffdc;
+  font-weight: bold;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
+  /* border: 1px solid purple; */
+}
+
+/* メッセージ取りまとめ*/
+#messages {
+  width: 100%;
+  height: 13%;
+  display: flex;
+  /* border: solid 1px pink; */
+}
+
+/* メッセージ */
+#message {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: blue;
+  letter-spacing: 8px;
+}
+
+/* カウント,ハイスコアとりまとめ*/
+#counter-highscore-container {
+  /* background: skyblue; */
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* border: solid 1px yellow; */
+}
+
+/* カウント,ハイスコア*/
+.counter-highscore {
+  height: 30%;
+  font-size: 1.2rem;
+  color: blue;
+  text-align: left;
+}
+
+/* プログレスバー */
+#progress-bar {
+  height: 30%;
+  border: 0.25rem solid #56a5eb;
+}
+
+#progress-bar-full {
+  width: 100%;
+  height: 100%;
+  background-color: #56a5eb;
+}
+
+/* ボード */
+#board {
+  width: 90%;
+  height: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* background: lightcoral; */
+}
+
+/* パネル */
+.panel {
+  width: 9.5%;
+  height: 9.5%;
+  font-size: 1.5rem;
+  background: #ff1b68;
+  color: white;
+  border: white 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: 1s;
+}
+
+/* パネルをホバー */
+.panel:not(.inactive):hover {
+  color: #ff1b68;
+  background: white;
+}
+
+/* パネルを押す */
+.panel:active {
+  transform: scale(0.9);
+}
+
+/* 正解 */
+.correct {
+  color: green;
+  background: yellow;
+  border-radius: 50%;
+  transform: rotate(360deg);
+  box-shadow: none;
+  font-size: 1.2rem;
+}
+
+/* 正解の場合のメッセージanimation */
+.slide-in {
+  animation: slideIn 1s;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  1000% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* 不正解 */
+.incorrect {
+  animation-name: shake;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  transform: scale(0.9);
+  background: gray;
+  box-shadow: none;
+}
+
+/* 不正解の場合panelをshake */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(2px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ボタンとりまとめ */
+#btn-wrapper {
+  width: 100%;
+  height: 15%;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ボタン */
+.btn {
+  width: 100%;
+  height: 33%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: #3498db;
+  cursor: pointer;
+  user-select: none;
+  border: 1px white solid;
+  letter-spacing: 8px;
+}
+
+/* ボタンをホバー */
+.btn:not(.inactive):hover {
+  color: #3498db;
+  background: white;
+}
+
+/* ボタンを押す */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* 使用不可時 */
+.inactive {
+  cursor: not-allowed;
+}
+
+/* ゲームルール */
+#rule {
+  /* 上下左右中央に寄せる */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  width: 70%;
+  color: black;
+  background-color: white;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+  /* overlayより上に重ねる */
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+#rule p {
+  line-height: 1.7;
+}
+
+/* ルールをだす */
+#rule.show {
+  transform: translate(-50%, 0);
+}
+
+/* ぼかしを隠す */
+.hidden {
+  display: none;
+}
+
+/* ぼかしをかぶせる */
+#overlay-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* ぼかしを入れる  px単位でぼやけ具合を指定*/
+  backdrop-filter: blur(3px);
+  /* modalの下に置く */
+  z-index: 5;
+}
+
+/* ルールを閉じるボタン */
+#close-rule {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: black;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 40rem) {
+  #container {
+    max-width: 800px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #message {
+    font-size: 2.2rem;
+  }
+  .counter-highscore {
+    font-size: 1.2rem;
+  }
+  /* ボタンとりまとめ */
+  #btn-wrapper {
+    width: 100%;
+    height: 7%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .btn {
+    width: 20%;
+    height: 100%;
+    border-radius: 100px;
+  }
+}

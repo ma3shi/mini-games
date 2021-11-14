@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>number-guess</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="messages">
+        <div id="message"></div>
+        <div id="counter-highscore-container">
+          <div id="counter" class="counter-highscore"></div>
+          <div id="progress-bar">
+            <div id="progress-bar-full"></div>
+          </div>
+          <div id="highscore" class="counter-highscore">Highscore: 0</div>
+        </div>
+      </div>
+      <div id="board"></div>
+      <div id="btn-wrapper">
+        <div id="start" class="btn">スタート</div>
+        <div id="reset" class="btn inactive">リセット</div>
+        <div id="show-rule" class="btn">ルール</div>
+        <a href="../index.html" class="btn">一覧へ</a>
+      </div>
+
+      <div id="rule">
+        <!-- &times;は乗算× -->
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <p>
+          1から100の間に隠された当たりの数字を探します。<br />
+          選択した数字が間違っていた場合、当たり数字より大きいか小さいかヒントが出ます。<br />
+          10回以内に当たり数字を見つければ正解です。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
